@@ -4,15 +4,15 @@ const XLSX = require('xlsx');
 const dotenv = require('dotenv');
 
 dotenv.config({
-  path: path.join(__dirname, '..', 'config', '.env')
+  path: path.join(__dirname, 'config', '.env')
 });
 
-const { runApify } = require('../apify/apify');
+const { runApify } = require('./apify');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 let cachedReports = null;
 let generationPromise = null;
@@ -55,7 +55,6 @@ function readExcel(filePath) {
 async function generateReports() {
   const dataFolder = path.join(
     __dirname,
-    '..',
     'data'
   );
 
