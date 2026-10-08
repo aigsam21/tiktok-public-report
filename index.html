@@ -1,14 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>시딩 성과 리포트 · 전체</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2026년 9월 인플루언서 시딩 보고</title>
+<style>
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -35,6 +33,246 @@
       padding: 0 20px 40px;
     }
 
+    section {
+      margin-bottom: 48px;
+    }
+
+    .section-title {
+      margin: 0 0 14px;
+      font-size: 24px;
+      color: #1d2b4d;
+    }
+
+    .section-subtitle {
+      margin: -5px 0 14px;
+      font-size: 13px;
+      color: #727b90;
+    }
+
+    .kpi-wrap {
+      background: #fff;
+      border-radius: 12px;
+      overflow: auto;
+      box-shadow: 0 3px 14px #00000008;
+    }
+
+    .kpi-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 620px;
+    }
+
+    .kpi-table th {
+      background: #1d2b4d;
+      color: #fff;
+      padding: 13px 12px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .kpi-table td {
+      padding: 14px 12px;
+      border-bottom: 1px solid #e9ebf0;
+      text-align: center;
+      font-size: 14px;
+      background: #fff3bf;
+    }
+
+    .kpi-table tr:last-child td {
+      font-weight: 700;
+      background: #ffe9a8;
+    }
+
+    .kpi-table td:first-child {
+      font-weight: 700;
+      color: #1d2b4d;
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 1.45fr 1fr;
+      gap: 16px;
+    }
+
+    .overview-card {
+      background: #fff;
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px solid #edf0f5;
+      box-shadow: 0 3px 12px #00000006;
+    }
+
+    .overview-card h3 {
+      margin: 0 0 16px;
+      font-size: 19px;
+      color: #1d2b4d;
+    }
+
+    .overview-card .note {
+      color: #727b90;
+      font-size: 12px;
+      margin: 0 0 14px;
+      line-height: 1.55;
+    }
+
+    .seed-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .seed-stat {
+      background: #f8f9fc;
+      border: 1px solid #edf0f5;
+      border-radius: 10px;
+      padding: 11px;
+      text-align: center;
+    }
+
+    .seed-stat small {
+      display: block;
+      color: #727b90;
+      font-size: 11px;
+      margin-bottom: 5px;
+    }
+
+    .seed-stat strong {
+      display: block;
+      font-size: 19px;
+      color: #1d2b4d;
+    }
+
+    .country-table,
+    .sub-table,
+    .history-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .country-table th,
+    .sub-table th,
+    .history-table th {
+      background: #1d2b4d;
+      color: #fff;
+      padding: 10px 8px;
+      font-size: 12px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .country-table td,
+    .sub-table td,
+    .history-table td {
+      padding: 10px 8px;
+      border-bottom: 1px solid #e9ebf0;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .country-table tbody tr,
+    .sub-table tbody tr,
+    .history-table tbody tr {
+      background: #fff;
+    }
+
+    .country-table tbody tr:last-child td,
+    .sub-table tbody tr:last-child td,
+    .history-table tbody tr:last-child td {
+      font-weight: 700;
+      background: #fff7d6;
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 820px;
+    }
+
+    .comparison-table th {
+      background: #f2f2f2;
+      color: #17213d;
+      padding: 14px 10px 12px;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 700;
+      border-bottom: 1px solid #e2e2e2;
+    }
+
+    .comparison-table th:first-child {
+      width: 22%;
+    }
+
+    .comparison-table th.highlight {
+      background: #f7f3ea;
+      color: #aa7b33;
+    }
+
+    .comparison-table th .month-sub {
+      display: block;
+      margin-top: 6px;
+      font-size: 10px;
+      font-weight: 600;
+      color: #8a8f9d;
+    }
+
+    .comparison-table td {
+      padding: 16px 12px;
+      border-bottom: 1px solid #e2e2e2;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .comparison-table td:first-child {
+      text-align: left;
+      padding-left: 18px;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .comparison-table .pair-main {
+      font-size: 21px;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .comparison-table .pair-sub {
+      color: #747985;
+      font-size: 14px;
+      font-weight: 500;
+      margin-left: 4px;
+    }
+
+    .comparison-table .sep-cell {
+      background: #f7f3ea;
+    }
+
+    .comparison-table .total-row td {
+      background: #242424;
+      color: #fff;
+      font-weight: 700;
+      border-bottom: none;
+    }
+
+    .comparison-table .total-row .pair-main,
+    .comparison-table .total-row .pair-sub {
+      color: #fff;
+    }
+
+    .comparison-table .total-row .sep-cell {
+      background: #bd914c;
+      color: #fff;
+    }
+
+    .sub-total {
+      font-size: 29px;
+      font-weight: 700;
+      color: #1d2b4d;
+      margin-bottom: 14px;
+    }
+
     .employee-report {
       margin-bottom: 48px;
     }
@@ -43,11 +281,20 @@
       margin: 0 0 10px;
       font-size: 24px;
       color: #1d2b4d;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
-    .employee-report h3 {
-      font-size: 20px;
-      margin: 0 0 14px;
+    .employee-badge {
+      display: inline-block;
+      background: #eef1f7;
+      color: #4d5871;
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-size: 12px;
+      font-weight: 600;
     }
 
     .tabs {
@@ -65,7 +312,7 @@
 
     .metrics {
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-columns: repeat(6, minmax(0, 1fr));
       gap: 12px;
       margin-bottom: 28px;
     }
@@ -103,7 +350,7 @@
       white-space: nowrap;
     }
 
-    th {
+    .table-wrap th {
       background: #1d2b4d;
       color: #fff;
       padding: 13px 12px;
@@ -112,18 +359,18 @@
       font-weight: 600;
     }
 
-    td {
+    .table-wrap td {
       padding: 12px;
       border-bottom: 1px solid #e9ebf0;
       text-align: center;
       font-size: 13px;
     }
 
-    tbody tr {
+    .table-wrap tbody tr {
       background-color: #fff3bf;
     }
 
-    tbody tr:hover {
+    .table-wrap tbody tr:hover {
       background-color: #ffe69c;
     }
 
@@ -138,790 +385,336 @@
       margin: 0 3px;
     }
 
-    @media (max-width: 900px) {
+    .empty-history {
+      color: #727b90;
+      font-size: 12px;
+      text-align: center;
+      padding: 16px;
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid #edf0f5;
+    }
+
+    @media (max-width: 1050px) {
       .metrics {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
+      .seed-stat-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .overview-grid {
+        grid-template-columns: 1fr;
+      }
+    }
 
-      header {
-        padding: 22px 20px;
-      }
+    @media (max-width: 900px) {
+      header { padding: 22px 20px; }
+      main { padding: 0 12px 30px; }
+      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .seed-stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
 
-      main {
-        padding: 0 12px 30px;
-      }
+    @media (max-width: 600px) {
+      .metrics { grid-template-columns: 1fr; }
+      .seed-stat-grid { grid-template-columns: 1fr 1fr; }
+      .employee-report h2 { font-size: 21px; }
+      .overview-card[style] { grid-template-columns: 1fr; }
     }
   </style>
 </head>
-
 <body>
-
 <header>
-  <h1>시딩 성과 리포트 · 전체</h1>
+<h1>2026년 9월 인플루언서 시딩 보고</h1>
 </header>
-
 <main>
-  
-      <section class="employee-report">
-
-        <h2>강미경</h2>
-
-        <div class="tabs">
-          <button>전체</button>
-        </div>
-
-        <div class="metrics">
-          
-        <div class="metric">
-          <small>게시물</small>
-          <strong>80</strong>
-        </div>
-      
-        <div class="metric">
-          <small>총 조회수</small>
-          <strong>95,985</strong>
-        </div>
-      
-        <div class="metric">
-          <small>총 저장수</small>
-          <strong>361</strong>
-        </div>
-      
-        <div class="metric">
-          <small>중앙 ER</small>
-          <strong>5.71%</strong>
-        </div>
-      
-        <div class="metric">
-          <small>최고 조회 영상</small>
-          <strong>33,000</strong>
-        </div>
-      
-        </div>
-
-        <h3>추천 크리에이터</h3>
-
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>No.</th>
-                <th>아이디</th>
-                <th>플랫폼</th>
-                <th>게시물</th>
-                <th>최고 조회수</th>
-                <th>총 조회수</th>
-                <th>총 저장</th>
-                <th>평균 ER</th>
-                <th>Видео</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              
-        <tr>
-          <td>1</td>
-          <td>binayasukshina</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>33,000</td>
-          <td>33,000</td>
-          <td>39</td>
-          <td>3.62%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@binayasukshina/video/7688126198152465685"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>2</td>
-          <td>lissenllamo</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>11,200</td>
-          <td>11,200</td>
-          <td>4</td>
-          <td>0.19%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@lissenllamo/video/7685613204688375071"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>3</td>
-          <td>marilinmerubia</td>
-          <td>TT</td>
-          <td>5</td>
-          <td>6,276</td>
-          <td>14,966</td>
-          <td>131</td>
-          <td>2.48%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@marilinmerubia/video/7686706400130501896"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-           · 
-            <a
-              href="https://www.tiktok.com/@marilinmerubia/video/7686709642340125960"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link2</a>
-           · 
-            <a
-              href="https://www.tiktok.com/@marilinmerubia/video/7686710861347540242"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link3</a>
-           · 
-            <a
-              href="https://www.tiktok.com/@marilinmerubia/video/7687824042308422920"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link4</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>4</td>
-          <td>__sardarnideep__</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>4,810</td>
-          <td>4,810</td>
-          <td>18</td>
-          <td>3.06%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@__sardarnideep__/video/7682248495234944274"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>5</td>
-          <td>beger_family</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>2,699</td>
-          <td>2,699</td>
-          <td>4</td>
-          <td>0.74%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@beger.family/video/7682750059586424094"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>6</td>
-          <td>alishabhujel004</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>2,446</td>
-          <td>2,446</td>
-          <td>13</td>
-          <td>3.31%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@alishabhujel004/video/7690396054239464724"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>7</td>
-          <td>azlifestylez21</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>1,728</td>
-          <td>1,728</td>
-          <td>7</td>
-          <td>2.89%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@azlifestylez21/video/7681175667517574418"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>8</td>
-          <td>leann.mathieuu</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>1,437</td>
-          <td>1,437</td>
-          <td>6</td>
-          <td>5.85%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@leann.mathieuu/video/7690667056437480705"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>9</td>
-          <td>neidelynm_</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>1,422</td>
-          <td>1,422</td>
-          <td>2</td>
-          <td>2.39%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@iam.nei8/video/7685586137993219341"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>10</td>
-          <td>belrevilla</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>960</td>
-          <td>960</td>
-          <td>2</td>
-          <td>1.67%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@belrevillar/video/7677709851283311903"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-            </tbody>
-          </table>
-        </div>
-
-      </section>
-    
-      <section class="employee-report">
-
-        <h2>신유</h2>
-
-        <div class="tabs">
-          <button>전체</button>
-        </div>
-
-        <div class="metrics">
-          
-        <div class="metric">
-          <small>게시물</small>
-          <strong>76</strong>
-        </div>
-      
-        <div class="metric">
-          <small>총 조회수</small>
-          <strong>303,860</strong>
-        </div>
-      
-        <div class="metric">
-          <small>총 저장수</small>
-          <strong>4,556</strong>
-        </div>
-      
-        <div class="metric">
-          <small>중앙 ER</small>
-          <strong>6.82%</strong>
-        </div>
-      
-        <div class="metric">
-          <small>최고 조회 영상</small>
-          <strong>230,700</strong>
-        </div>
-      
-        </div>
-
-        <h3>추천 크리에이터</h3>
-
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>No.</th>
-                <th>아이디</th>
-                <th>플랫폼</th>
-                <th>게시물</th>
-                <th>최고 조회수</th>
-                <th>총 조회수</th>
-                <th>총 저장</th>
-                <th>평균 ER</th>
-                <th>Видео</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              
-        <tr>
-          <td>1</td>
-          <td>sabrinakitokos</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>230,700</td>
-          <td>230,700</td>
-          <td>3,967</td>
-          <td>6.27%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@sabrinakitoko/video/7671301601792904480?is_from_webapp=1&amp;sender_device=pc"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>2</td>
-          <td>sakshinagpal__</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>21,800</td>
-          <td>21,800</td>
-          <td>339</td>
-          <td>3.61%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@sayashnagpal/video/7684369316690595092?is_from_webapp=1"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>3</td>
-          <td>helzmua</td>
-          <td>TT</td>
-          <td>2</td>
-          <td>15,100</td>
-          <td>17,641</td>
-          <td>86</td>
-          <td>1.98%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@helzrm/video/7665083372598758689?is_from_webapp=1&amp;sender_device=pc"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-           · 
-            <a
-              href="https://www.tiktok.com/@helzrm/video/7670604503791488288?is_from_webapp=1&amp;sender_device=pc&amp;web_id=7600578534554273288"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link2</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>4</td>
-          <td>lauravhm</td>
-          <td>TT</td>
-          <td>2</td>
-          <td>2,340</td>
-          <td>2,340</td>
-          <td>1</td>
-          <td>0.38%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@lauravhm35/video/7680995475394284814?is_from_webapp=1&amp;sender_device=pc&amp;web_id=7600578534554273288"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-           · 
-            <a
-              href="https://www.tiktok.com/@lauravhm35/video/7681333107412323598?is_from_webapp=1&amp;sender_device=pc&amp;web_id=7600578534554273288"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link2</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>5</td>
-          <td>helenariot</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>2,089</td>
-          <td>2,089</td>
-          <td>19</td>
-          <td>6.51%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@helenariot_makeup/video/7668727676961606919?is_from_webapp=1&amp;sender_device=pc"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>6</td>
-          <td>pamamairani</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>1,501</td>
-          <td>1,501</td>
-          <td>0</td>
-          <td>0.40%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@pamamairani/video/7687794544364047630?is_from_webapp=1&amp;sender_device=pc"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>7</td>
-          <td>doc.shania</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>1,294</td>
-          <td>1,294</td>
-          <td>17</td>
-          <td>5.26%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@doc.shania/video/7690058338163232030?is_from_webapp=1&amp;sender_device=pc"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>8</td>
-          <td>_susmi_shrestha</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>1,224</td>
-          <td>1,224</td>
-          <td>3</td>
-          <td>24.92%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@_susmi_shrestha/video/7682510562315603207?is_from_webapp=1&amp;sender_device=pc"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>9</td>
-          <td>michaelakroeckel</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>1,172</td>
-          <td>1,172</td>
-          <td>2</td>
-          <td>2.47%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@harperscmavmjourney/video/7683360620112039182?is_from_webapp=1&amp;sender_device=pc"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>10</td>
-          <td>beatricesulschi</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>1,048</td>
-          <td>1,048</td>
-          <td>0</td>
-          <td>9.64%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@beatricesulschi/video/7682994064395881759?is_from_webapp=1&amp;sender_device=pc"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-            </tbody>
-          </table>
-        </div>
-
-      </section>
-    
-      <section class="employee-report">
-
-        <h2>유연식</h2>
-
-        <div class="tabs">
-          <button>전체</button>
-        </div>
-
-        <div class="metrics">
-          
-        <div class="metric">
-          <small>게시물</small>
-          <strong>91</strong>
-        </div>
-      
-        <div class="metric">
-          <small>총 조회수</small>
-          <strong>58,526</strong>
-        </div>
-      
-        <div class="metric">
-          <small>총 저장수</small>
-          <strong>567</strong>
-        </div>
-      
-        <div class="metric">
-          <small>중앙 ER</small>
-          <strong>3.83%</strong>
-        </div>
-      
-        <div class="metric">
-          <small>최고 조회 영상</small>
-          <strong>17,700</strong>
-        </div>
-      
-        </div>
-
-        <h3>추천 크리에이터</h3>
-
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>No.</th>
-                <th>아이디</th>
-                <th>플랫폼</th>
-                <th>게시물</th>
-                <th>최고 조회수</th>
-                <th>총 조회수</th>
-                <th>총 저장</th>
-                <th>평균 ER</th>
-                <th>Видео</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              
-        <tr>
-          <td>1</td>
-          <td>gursimranwaraich</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>17,700</td>
-          <td>17,700</td>
-          <td>411</td>
-          <td>4.53%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@gursimranwaraich/video/7689987894018182421?_r=1&amp;_t=ZS-9A6v2pWb7Uy"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>2</td>
-          <td>lucirene02</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>3,978</td>
-          <td>3,978</td>
-          <td>2</td>
-          <td>0.78%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@lucirene02/video/7685933808373239054?_r=1&amp;_t=ZT-99lkOczQ5a2"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>3</td>
-          <td>valeriaydn</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>1,652</td>
-          <td>1,652</td>
-          <td>3</td>
-          <td>1.69%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@valeriaydn/video/7689599474221468941?_r=1&amp;_t=ZT-9A2TUWW4RNl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>4</td>
-          <td>beautywitharii</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>1,574</td>
-          <td>1,574</td>
-          <td>3</td>
-          <td>6.48%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@beautywitharii/video/7684764612956392735?is_from_webapp=1&amp;sender_device=pc"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>5</td>
-          <td>shoppingwithchristina</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>1,573</td>
-          <td>1,573</td>
-          <td>1</td>
-          <td>0.25%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@shoppingwithchristina/video/7683214299107462413?is_from_webapp=1&amp;sender_device=pc"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>6</td>
-          <td>josieeliciouss</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>1,395</td>
-          <td>1,395</td>
-          <td>0</td>
-          <td>2.01%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@josephinemiette/video/7682767404518182174?_r=1&amp;_t=ZP-99XsOkf0kAg"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>7</td>
-          <td>tokiwashere</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>1,141</td>
-          <td>1,141</td>
-          <td>5</td>
-          <td>1.93%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@tokiwashere/video/7683701763991440654?_r=1&amp;_t=ZT-99bUr8iwK2H"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>8</td>
-          <td>charlemakeup</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>1,089</td>
-          <td>1,089</td>
-          <td>14</td>
-          <td>16.35%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@charlemakeup/video/7689534243860450583?_r=1&amp;_t=ZN-9A2LnxIFZpL"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>9</td>
-          <td>lexierobertson_</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>992</td>
-          <td>992</td>
-          <td>4</td>
-          <td>3.83%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@lexierobertson_/video/7683257556441107742?is_from_webapp=1&amp;sender_device=pc"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-        <tr>
-          <td>10</td>
-          <td>jeniiscott_</td>
-          <td>TT</td>
-          <td>1</td>
-          <td>975</td>
-          <td>975</td>
-          <td>2</td>
-          <td>1.33%</td>
-          <td class="video-links">
-            <a
-              href="https://www.tiktok.com/@jeniiscott/video/7684737868337548574"
-              target="_blank"
-              rel="noopener noreferrer"
-            >link1</a>
-          </td>
-        </tr>
-      
-            </tbody>
-          </table>
-        </div>
-
-      </section>
-    
+<!-- 담당자별 9월 KPI -->
+<section>
+<h2 class="section-title">담당자별 <em>9월</em> <strong>KPI</strong></h2>
+<div class="kpi-wrap">
+<table class="kpi-table">
+<thead>
+<tr>
+<th>담당자</th>
+<th>메인 시딩</th>
+<th>서브 시딩</th>
+<th>합계</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>강미경</td>
+<td>121명</td>
+<td>64명</td>
+<td>185명</td>
+</tr>
+<tr>
+<td>신유</td>
+<td>123명</td>
+<td>60명</td>
+<td>183명</td>
+</tr>
+<tr>
+<td>유연식</td>
+<td>176명</td>
+<td>52명</td>
+<td>228명</td>
+</tr>
+<tr>
+<td>TOTAL</td>
+<td>420명</td>
+<td>176명</td>
+<td>596명</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;">
+<div class="overview-card" style="padding:14px 18px;">
+<div style="font-size:12px;color:#727b90;">전체 크리에이터</div>
+<div style="font-size:27px;font-weight:700;margin-top:6px;">313명</div>
+</div>
+<div class="overview-card" style="padding:14px 18px;">
+<div style="font-size:12px;color:#727b90;">전체 콘텐츠</div>
+<div style="font-size:27px;font-weight:700;margin-top:6px;">414개</div>
+</div>
+</div>
+</section>
+<!-- US, CA, MX / SUB -->
+<section>
+<div class="overview-grid">
+<div class="overview-card">
+<h3>US, CA, MX 9월 시딩</h3>
+<p class="note">9월 메인 시딩 진행 현황을 전체 리스트·리뷰·확정·진행·완료 기준으로 정리했습니다.</p>
+<div class="seed-stat-grid">
+<div class="seed-stat">
+<small>초기 리스트</small>
+<strong>4,320</strong>
+</div>
+<div class="seed-stat">
+<small>검토</small>
+<strong>3,031</strong>
+</div>
+<div class="seed-stat">
+<small>확정</small>
+<strong>420</strong>
+</div>
+<div class="seed-stat">
+<small>진행 중</small>
+<strong>189</strong>
+</div>
+<div class="seed-stat">
+<small>완료</small>
+<strong>231</strong>
+</div>
+</div>
+<table class="country-table">
+<thead>
+<tr>
+<th>국가</th>
+<th>확정 크리에이터</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USA</td>
+<td>51명</td>
+</tr>
+<tr>
+<td>Canada</td>
+<td>200명</td>
+</tr>
+<tr>
+<td>Mexico</td>
+<td>169명</td>
+</tr>
+<tr>
+<td>TOTAL</td>
+<td>420명</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="overview-card">
+<h3>서브 시딩</h3>
+<p class="note">9월 서브 시딩 전체 176명입니다.</p>
+<div class="sub-total">176명</div>
+<table class="sub-table">
+<thead>
+<tr>
+<th>담당자</th>
+<th>서브 시딩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>강미경</td>
+<td>64명</td>
+</tr>
+<tr>
+<td>신유</td>
+<td>60명</td>
+</tr>
+<tr>
+<td>유연식</td>
+<td>52명</td>
+</tr>
+<tr>
+<td>TOTAL</td>
+<td>176명</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- 강미경 -->
+<section class="employee-report">
+<h2>강미경</h2>
+<div class="metrics">
+<div class="metric">
+<small>크리에이터 수</small>
+<strong>116</strong>
+</div>
+<div class="metric">
+<small>콘텐츠 수</small>
+<strong>168</strong>
+</div>
+<div class="metric">
+<small>총 조회수</small>
+<strong>96,568</strong>
+</div>
+<div class="metric">
+<small>총 저장수</small>
+<strong>364</strong>
+</div>
+<div class="metric">
+<small>중앙 ER</small>
+<strong>5.69%</strong>
+</div>
+<div class="metric">
+<small>최고 조회 영상</small>
+<strong>33,200</strong>
+</div>
+</div>
+<h3>Top Content / 추천 크리에이터</h3>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>No.</th>
+<th>아이디</th>
+<th>플랫폼</th>
+<th>게시물</th>
+<th>최고 조회수</th>
+<th>총 조회수</th>
+<th>총 저장</th>
+<th>평균 ER</th>
+<th>영상</th>
+</tr>
+</thead>
+<tbody><tr><td>1</td><td>binayasukshina</td><td>TT</td><td>1</td><td>33,200</td><td>33,200</td><td>40</td><td>3.61%</td><td class="video-links"><a href="https://www.tiktok.com/@binayasukshina/video/7688126198152465685" rel="noopener noreferrer" target="_blank">link1</a></td></tr><tr><td>2</td><td>lissenllamo</td><td>TT</td><td>1</td><td>11,200</td><td>11,200</td><td>4</td><td>0.19%</td><td class="video-links"><a href="https://www.tiktok.com/@lissenllamo/video/7685613204688375071" rel="noopener noreferrer" target="_blank">link1</a></td></tr><tr><td>3</td><td>marilinmerubia</td><td>TT</td><td>5</td><td>6,329</td><td>15,152</td><td>131</td><td>2.45%</td><td class="video-links"><a href="https://www.tiktok.com/@marilinmerubia/video/7686706400130501896" rel="noopener noreferrer" target="_blank">link1</a> · <a href="https://www.tiktok.com/@marilinmerubia/video/7686709642340125960" rel="noopener noreferrer" target="_blank">link2</a> · <a href="https://www.tiktok.com/@marilinmerubia/video/7686710861347540242" rel="noopener noreferrer" target="_blank">link3</a> · <a href="https://www.tiktok.com/@marilinmerubia/video/7687824042308422920" rel="noopener noreferrer" target="_blank">link4</a></td></tr><tr><td>4</td><td>__sardarnideep__</td><td>TT</td><td>1</td><td>4,831</td><td>4,831</td><td>18</td><td>3.04%</td><td class="video-links"><a href="https://www.tiktok.com/@__sardarnideep__/video/7682248495234944274" rel="noopener noreferrer" target="_blank">link1</a></td></tr><tr><td>5</td><td>beger_family</td><td>TT</td><td>1</td><td>2,699</td><td>2,699</td><td>4</td><td>0.74%</td><td class="video-links"><a href="https://www.tiktok.com/@beger.family/video/7682750059586424094" rel="noopener noreferrer" target="_blank">link1</a></td></tr><tr><td>6</td><td>alishabhujel004</td><td>TT</td><td>1</td><td>2,494</td><td>2,494</td><td>13</td><td>3.33%</td><td class="video-links"><a href="https://www.tiktok.com/@alishabhujel004/video/7690396054239464724" rel="noopener noreferrer" target="_blank">link1</a></td></tr><tr><td>7</td><td>azlifestylez21</td><td>TT</td><td>1</td><td>1,729</td><td>1,729</td><td>7</td><td>2.89%</td><td class="video-links"><a href="https://www.tiktok.com/@azlifestylez21/video/7681175667517574418" rel="noopener noreferrer" target="_blank">link1</a></td></tr><tr><td>8</td><td>leann.mathieuu</td><td>TT</td><td>1</td><td>1,459</td><td>1,459</td><td>6</td><td>5.76%</td><td class="video-links"><a href="https://www.tiktok.com/@leann.mathieuu/video/7690667056437480705" rel="noopener noreferrer" target="_blank">link1</a></td></tr><tr><td>9</td><td>neidelynm_</td><td>TT</td><td>1</td><td>1,422</td><td>1,422</td><td>2</td><td>2.39%</td><td class="video-links"><a href="https://www.tiktok.com/@iam.nei8/video/7685586137993219341" rel="noopener noreferrer" target="_blank">link1</a></td></tr><tr><td>10</td><td>belrevilla</td><td>TT</td><td>1</td><td>960</td><td>960</td><td>2</td><td>1.67%</td><td class="video-links"><a href="https://www.tiktok.com/@belrevillar/video/7677709851283311903" rel="noopener noreferrer" target="_blank">link1</a></td></tr></tbody>
+</table>
+</div>
+</section>
+<!-- 신유 -->
+<section class="employee-report">
+<h2>신유</h2>
+<div class="metrics">
+<div class="metric"><small>크리에이터 수</small><strong>99</strong></div>
+<div class="metric"><small>콘텐츠 수</small><strong>147</strong></div>
+<div class="metric"><small>총 조회수</small><strong>304,810</strong></div>
+<div class="metric"><small>총 저장수</small><strong>4,565</strong></div>
+<div class="metric"><small>중앙 ER</small><strong>6.79%</strong></div>
+<div class="metric"><small>최고 조회 영상</small><strong>230,800</strong></div>
+</div>
+<h3>Top Content / 추천 크리에이터</h3>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>No.</th><th>아이디</th><th>플랫폼</th><th>게시물</th><th>최고 조회수</th><th>총 조회수</th><th>총 저장</th><th>평균 ER</th><th>영상</th>
+</tr>
+</thead>
+<tbody><tr><td>1</td><td>sabrinakitokos</td><td>TT</td><td>1</td><td>230,800</td><td>230,800</td><td>3,966</td><td>6.26%</td><td class="video-links"><a href="https://www.tiktok.com/@sabrinakitoko/video/7671301601792904480?is_from_webapp=1&amp;sender_device=pc" rel="noopener noreferrer" target="_blank">link1</a></td></tr><tr><td>2</td><td>sakshinagpal__</td><td>TT</td><td>1</td><td>22,000</td><td>22,000</td><td>343</td><td>3.61%</td><td class="video-links"><a href="https://www.tiktok.com/@sayashnagpal/video/7684369316690595092?is_from_webapp=1" rel="noopener noreferrer" target="_blank">link1</a></td></tr><tr><td>3</td><td>helzmua</td><td>TT</td><td>2</td><td>15,200</td><td>17,813</td><td>88</td><td>1.98%</td><td class="video-links"><a href="https://www.tiktok.com/@helzrm/video/7665083372598758689?is_from_webapp=1&amp;sender_device=pc" rel="noopener noreferrer" target="_blank">link1</a> · <a href="https://www.tiktok.com/@helzrm/video/7670604503791488288?is_from_webapp=1&amp;sender_device=pc&amp;web_id=7600578534554273288" rel="noopener noreferrer" target="_blank">link2</a></td></tr><tr><td>4</td><td>lauravhm</td><td>TT</td><td>2</td><td>2,340</td><td>2,340</td><td>1</td><td>0.38%</td><td class="video-links"><a href="https://www.tiktok.com/@lauravhm35/video/7680995475394284814?is_from_webapp=1&amp;sender_device=pc&amp;web_id=7600578534554273288" rel="noopener noreferrer" target="_blank">link1</a> · <a href="https://www.tiktok.com/@lauravhm35/video/7681333107412323598?is_from_webapp=1&amp;sender_device=pc&amp;web_id=7600578534554273288" rel="noopener noreferrer" target="_blank">link2</a></td></tr><tr><td>5</td><td>helenariot</td><td>TT</td><td>1</td><td>2,100</td><td>2,100</td><td>19</td><td>6.48%</td><td class="video-links"><a href="https://www.tiktok.com/@helenariot_makeup/video/7668727676961606919?is_from_webapp=1&amp;sender_device=pc" rel="noopener noreferrer" target="_blank">link1</a></td></tr><tr><td>6</td><td>pamamairani</td><td>TT</td><td>1</td><td>1,505</td><td>1,505</td><td>0</td><td>0.40%</td><td class="video-links"><a href="https://www.tiktok.com/@pamamairani/video/7687794544364047630?is_from_webapp=1&amp;sender_device=pc" rel="noopener noreferrer" target="_blank">link1</a></td></tr><tr><td>7</td><td>doc.shania</td><td>TT</td><td>1</td><td>1,349</td><td>1,349</td><td>18</td><td>5.49%</td><td class="video-links"><a href="https://www.tiktok.com/@doc.shania/video/7690058338163232030?is_from_webapp=1&amp;sender_device=pc" rel="noopener noreferrer" target="_blank">link1</a></td></tr><tr><td>8</td><td>_susmi_shrestha</td><td>TT</td><td>1</td><td>1,224</td><td>1,224</td><td>3</td><td>25.08%</td><td class="video-links"><a href="https://www.tiktok.com/@_susmi_shrestha/video/7682510562315603207?is_from_webapp=1&amp;sender_device=pc" rel="noopener noreferrer" target="_blank">link1</a></td></tr><tr><td>9</td><td>michaelakroeckel</td><td>TT</td><td>1</td><td>1,173</td><td>1,173</td><td>2</td><td>2.47%</td><td class="video-links"><a href="https://www.tiktok.com/@harperscmavmjourney/video/7683360620112039182?is_from_webapp=1&amp;sender_device=pc" rel="noopener noreferrer" target="_blank">link1</a></td></tr><tr><td>10</td><td>beatricesulschi</td><td>TT</td><td>1</td><td>1,048</td><td>1,048</td><td>0</td><td>9.64%</td><td class="video-links"><a href="https://www.tiktok.com/@beatricesulschi/video/7682994064395881759?is_from_webapp=1&amp;sender_device=pc" rel="noopener noreferrer" target="_blank">link1</a></td></tr></tbody>
+</table>
+</div>
+</section>
+<!-- 유연식 -->
+<section class="employee-report">
+<h2>유연식</h2>
+<div class="metrics">
+<div class="metric"><small>크리에이터 수</small><strong>98</strong></div>
+<div class="metric"><small>콘텐츠 수</small><strong>99</strong></div>
+<div class="metric"><small>총 조회수</small><strong>62,615</strong></div>
+<div class="metric"><small>총 저장수</small><strong>591</strong></div>
+<div class="metric"><small>중앙 ER</small><strong>4.01%</strong></div>
+<div class="metric"><small>최고 조회 영상</small><strong>17,900</strong></div>
+</div>
+<h3>Top Content / 추천 크리에이터</h3>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>No.</th><th>아이디</th><th>플랫폼</th><th>게시물</th><th>최고 조회수</th><th>총 조회수</th><th>총 저장</th><th>평균 ER</th><th>영상</th>
+</tr>
+</thead>
+<tbody><tr><td>1</td><td>gursimranwaraich</td><td>TT</td><td>1</td><td>17,900</td><td>17,900</td><td>414</td><td>4.52%</td><td class="video-links"><a href="https://www.tiktok.com/@gursimranwaraich/video/7689987894018182421?_r=1&amp;_t=ZS-9A6v2pWb7Uy" rel="noopener noreferrer" target="_blank">link1</a></td></tr><tr><td>2</td><td>lucirene02</td><td>TT</td><td>1</td><td>3,983</td><td>3,983</td><td>2</td><td>0.78%</td><td class="video-links"><a href="https://www.tiktok.com/@lucirene02/video/7685933808373239054?_r=1&amp;_t=ZT-99lkOczQ5a2" rel="noopener noreferrer" target="_blank">link1</a></td></tr><tr><td>3</td><td>momomalik20</td><td>TT</td><td>1</td><td>3,211</td><td>3,211</td><td>9</td><td>2.62%</td><td class="video-links"><a href="https://www.tiktok.com/@momomalik20/video/7690768092900707605?_r=1&amp;_t=ZS-9A7q5I6pce5" rel="noopener noreferrer" target="_blank">link1</a></td></tr><tr><td>4</td><td>psandhu781</td><td>TT</td><td>1</td><td>2,213</td><td>2,213</td><td>12</td><td>2.03%</td><td class="video-links"><a href="https://www.tiktok.com/@psandhu781/video/7687219624357743880?_r=1&amp;_t=ZS-99vtgR47WWV" rel="noopener noreferrer" target="_blank">link1</a></td></tr><tr><td>5</td><td>valeriaydn</td><td>TT</td><td>1</td><td>1,721</td><td>1,721</td><td>3</td><td>1.63%</td><td class="video-links"><a href="https://www.tiktok.com/@valeriaydn/video/7689599474221468941?_r=1&amp;_t=ZT-9A2TUWW4RNl" rel="noopener noreferrer" target="_blank">link1</a></td></tr><tr><td>6</td><td>beautywitharii</td><td>TT</td><td>1</td><td>1,578</td><td>1,578</td><td>3</td><td>6.46%</td><td class="video-links"><a href="https://www.tiktok.com/@beautywitharii/video/7684764612956392735?is_from_webapp=1&amp;sender_device=pc" rel="noopener noreferrer" target="_blank">link1</a></td></tr><tr><td>7</td><td>shoppingwithchristina</td><td>TT</td><td>1</td><td>1,573</td><td>1,573</td><td>1</td><td>0.25%</td><td class="video-links"><a href="https://www.tiktok.com/@shoppingwithchristina/video/7683214299107462413?is_from_webapp=1&amp;sender_device=pc" rel="noopener noreferrer" target="_blank">link1</a></td></tr><tr><td>8</td><td>josieeliciouss</td><td>TT</td><td>1</td><td>1,396</td><td>1,396</td><td>0</td><td>2.08%</td><td class="video-links"><a href="https://www.tiktok.com/@josephinemiette/video/7682767404518182174?_r=1&amp;_t=ZP-99XsOkf0kAg" rel="noopener noreferrer" target="_blank">link1</a></td></tr><tr><td>9</td><td>tokiwashere</td><td>TT</td><td>1</td><td>1,144</td><td>1,144</td><td>5</td><td>1.92%</td><td class="video-links"><a href="https://www.tiktok.com/@tokiwashere/video/7683701763991440654?_r=1&amp;_t=ZT-99bUr8iwK2H" rel="noopener noreferrer" target="_blank">link1</a></td></tr><tr><td>10</td><td>charlemakeup</td><td>TT</td><td>1</td><td>1,124</td><td>1,124</td><td>14</td><td>15.84%</td><td class="video-links"><a href="https://www.tiktok.com/@charlemakeup/video/7689534243860450583?_r=1&amp;_t=ZN-9A2LnxIFZpL" rel="noopener noreferrer" target="_blank">link1</a></td></tr></tbody>
+</table>
+</div>
+</section>
+<!-- 5–9월 비교 -->
+<section>
+<h2 class="section-title">5–9월 콘텐츠 및 크리에이터 현황</h2>
+<p class="section-subtitle">월별 콘텐츠 / 크리에이터 수</p>
+<div class="kpi-wrap">
+<table class="comparison-table">
+<thead>
+<tr>
+<th>담당자</th>
+<th>5월<span class="month-sub">콘텐츠 / 크리에이터</span></th>
+<th>6월<span class="month-sub">콘텐츠 / 크리에이터</span></th>
+<th>7월<span class="month-sub">콘텐츠 / 크리에이터</span></th>
+<th>8월<span class="month-sub">콘텐츠 / 크리에이터</span></th>
+<th class="highlight">9월<span class="month-sub">콘텐츠 / 크리에이터</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>강미경</td>
+<td><span class="pair-main">145</span><span class="pair-sub">/ 145</span></td>
+<td><span class="pair-main">106</span><span class="pair-sub">/ 106</span></td>
+<td><span class="pair-main">153</span><span class="pair-sub">/ 131</span></td>
+<td><span class="pair-main">108</span><span class="pair-sub">/ 98</span></td>
+<td class="sep-cell"><span class="pair-main">168</span><span class="pair-sub">/ 116</span></td>
+</tr>
+<tr>
+<td>신유</td>
+<td><span class="pair-main">119</span><span class="pair-sub">/ 119</span></td>
+<td><span class="pair-main">108</span><span class="pair-sub">/ 107</span></td>
+<td><span class="pair-main">116</span><span class="pair-sub">/ 106</span></td>
+<td><span class="pair-main">106</span><span class="pair-sub">/ 95</span></td>
+<td class="sep-cell"><span class="pair-main">147</span><span class="pair-sub">/ 99</span></td>
+</tr>
+<tr>
+<td>유연식</td>
+<td><span class="pair-main">100</span><span class="pair-sub">/ 100</span></td>
+<td><span class="pair-main">101</span><span class="pair-sub">/ 97</span></td>
+<td><span class="pair-main">171</span><span class="pair-sub">/ 134</span></td>
+<td><span class="pair-main">108</span><span class="pair-sub">/ 101</span></td>
+<td class="sep-cell"><span class="pair-main">99</span><span class="pair-sub">/ 98</span></td>
+</tr>
+<tr class="total-row">
+<td>TOTAL</td>
+<td><span class="pair-main">364</span><span class="pair-sub">/ 364</span></td>
+<td><span class="pair-main">315</span><span class="pair-sub">/ 310</span></td>
+<td><span class="pair-main">440</span><span class="pair-sub">/ 371</span></td>
+<td><span class="pair-main">322</span><span class="pair-sub">/ 294</span></td>
+<td class="sep-cell"><span class="pair-main">414</span><span class="pair-sub">/ 313</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
 </main>
-
 </body>
 </html>
